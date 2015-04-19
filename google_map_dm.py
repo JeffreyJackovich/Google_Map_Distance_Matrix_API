@@ -58,8 +58,6 @@ pd.options.mode.chained_assignment = None
 df = pd.read_csv('dca.csv')
 
 for i in range(len(df)):   
-
-    #[value] is number of seconds, [text] is string like "3 days two hours"
     
     df['time_to_BH'][i] = int(distance_matrix(client, df['Origin_Zip'][i] , df['Destination_BH'][i], departure_time = dptime)['rows'][0]['elements'][0]['duration']['value']/60)
     df['time_to_SM'][i] = int(distance_matrix(client, df['Origin_Zip'][i] , df['Destination_SM'][i], departure_time = dptime)['rows'][0]['elements'][0]['duration']['value']/60)
